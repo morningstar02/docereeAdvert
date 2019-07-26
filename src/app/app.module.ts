@@ -18,6 +18,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { UserService } from './core/services/user.service';
 import { AuthGuard } from './core/auth/auth.guard';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
+import { NewsComponent } from './home/news/news.component';
+import { DrugsComponent } from './home/drugs/drugs.component';
+import { ClinicaltrialsComponent } from './home/clinicaltrials/clinicaltrials.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AuthInterceptor } from './core/auth/auth.interceptor';
     HomepageComponent,
     SigninComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewsComponent,
+    DrugsComponent,
+    ClinicaltrialsComponent
   ],
   imports: [
     BrowserModule,
