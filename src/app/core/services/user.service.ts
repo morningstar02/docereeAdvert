@@ -28,6 +28,7 @@ export class UserService {
 
   isLoggedIn() {
     var userPayload = this.getUserPayload();
+    console.log(userPayload);
     if (userPayload)
       return userPayload.exp > Date.now() / 1000;
     else

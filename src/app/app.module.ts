@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { appRoutes } from './home/routes';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +14,10 @@ import { SigninComponent } from './home/signin/signin.component';
 import { RegisterComponent } from './home/register/register.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+
+import { UserService } from './core/services/user.service';
+import { AuthGuard } from './core/auth/auth.guard';
+import { AuthInterceptor } from './core/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,9 +33,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ UserService, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

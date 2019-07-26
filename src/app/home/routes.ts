@@ -4,11 +4,11 @@ import { Routes } from "@angular/router";
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
+import { AuthGuard } from "../core/auth/auth.guard";
 
 export const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomepageComponent},
-  {path: 'signin', pathMatch: 'full', component: SigninComponent},
+  {path: 'login', pathMatch: 'full', component: SigninComponent},
   {path: 'register', pathMatch: 'full', component: RegisterComponent},
-  {path: 'dashboard', pathMatch: 'full', component: DashboardComponent}
+  {path: 'dashboard', pathMatch: 'full', component: DashboardComponent, canActivate: [AuthGuard]}
 ];
