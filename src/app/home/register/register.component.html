@@ -1,4 +1,4 @@
-<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" autocomplete="off" class="example-form">
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" autocomplete="off" class="example-form" style="max-width: 400px;">
     <div fxLayout="column wrap" fxLayoutGap="32px">
       <mat-form-field>
         <input matInput type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
@@ -15,7 +15,7 @@
             <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
           </div>
       </mat-form-field>
-        
+
       <mat-form-field>
           <input matInput type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
           minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
@@ -24,7 +24,7 @@
             <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
           </div>
       </mat-form-field>
-        
+
       <button type="submit" mat-raised-button color="primary">
           Sign Up
       </button>
@@ -40,3 +40,4 @@
 <div class="alert" *ngIf="serverErrorMessages">
   {{serverErrorMessages}}
 </div>
+

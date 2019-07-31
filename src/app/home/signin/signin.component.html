@@ -1,4 +1,4 @@
-<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class="example-form">
+<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class="example-form" style="max-width: 400px;">
     <div fxLayout="column wrap" fxLayoutGap="32px" style="align-items: center;">
         <mat-form-field>
             <input matInput type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
@@ -14,12 +14,12 @@
             <label class="validation-message">Minimum 4 characters.</label>
           </div>
         </mat-form-field>
-      
+
       <button type="submit" mat-raised-button color="accent">
           Log In
       </button>
     </div>
-  
+
 </form>
 <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
